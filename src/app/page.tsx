@@ -1,27 +1,57 @@
 import React from 'react';
-import AppLayout from '@/components/AppLayout';
-import AzkarHero from './components/AzkarHero';
-import PrayerTimesWidget from './components/PrayerTimesWidget';
-import AzkarCategoryTabs from './components/AzkarCategoryTabs';
 
-export default function AzkarLibraryPage() {
+export default function Home() {
   return (
-    <AppLayout>
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '24px 16px 48px' }}>
-        <AzkarHero />
-        <div style={{ marginTop: '24px', display: 'grid', gridTemplateColumns: '1fr', gap: '20px' }} className="xl:grid-cols-4-custom">
-          <div style={{ flex: 1 }}>
-            <AzkarCategoryTabs />
+    <div className="app-shell">
+      {/* الجزء العلوي - الهيدر */}
+      <header className="app-header">
+        <div className="header-bg-pattern"></div>
+        <div className="header-top">
+          <div className="header-brand">
+            <span className="brand-icon">🌙</span>
+            <div>
+              <h1 className="brand-title">نور الهداية</h1>
+              <p className="brand-sub">NUR AI DHIKR</p>
+            </div>
           </div>
-          <div style={{ minWidth: '280px', maxWidth: '340px' }} className="hidden xl:block">
-            <PrayerTimesWidget />
+          <button className="reset-all-btn">
+            <span className="reset-icon">🔄</span>
+            <span className="reset-label">تصفير العدادات</span>
+          </button>
+        </div>
+      </header>
+
+      {/* محتوى الموقع - الأذكار */}
+      <main className="cards-feed custom-scrollbar">
+        
+        {/* مثال لكارت ذكر واحد - تقدر تكرره */}
+        <div className="dhikr-card">
+          <div className="card-header">
+            <span className="card-index">١</span>
+            <span className="card-title-tag">أذكار الصباح</span>
+          </div>
+          <div className="card-body">
+            <p className="card-arabic">أَصْبَحْنَا وَأَصْبَحَ المُلْكُ للهِ وَالحَمْدُ للهِ</p>
+          </div>
+          <div className="card-footer">
+            <button className="tap-btn">
+              <span className="tap-btn-label">اضغط للتسبيح</span>
+            </button>
           </div>
         </div>
-        {/* Mobile prayer widget */}
-        <div style={{ marginTop: '20px' }} className="xl:hidden">
-          <PrayerTimesWidget />
+
+        {/* قسم الدردشة مع الذكاء الاصطناعي */}
+        <div className="chat-bubble-ai mt-8 p-4">
+          <p>أنا مساعدك الذكي "نور"، كيف يمكنني مساعدتك اليوم في ذكر الله؟</p>
         </div>
+
+      </main>
+
+      {/* إشعار النجاح */}
+      <div className="toast">
+        <span className="toast-icon">✨</span>
+        تمت القراءة بنجاح
       </div>
-    </AppLayout>
+    </div>
   );
 }
