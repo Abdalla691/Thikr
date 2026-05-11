@@ -32,9 +32,9 @@ export default function RootLayout({
           rel="stylesheet"
         />
 </head>
-      <body>
-        {children}
-      </body>
+     <body className="bg-ivory text-gray-900 font-cairo antialiased">
+  {children}
+</body>
     </html>
   );
 }
