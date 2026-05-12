@@ -1,53 +1,40 @@
 import React from 'react';
-
-import AppLayout from '@/components/AppLayout';
-
 import AzkarHero from './components/AzkarHero';
-
 import PrayerTimesWidget from './components/PrayerTimesWidget';
-
 import AzkarCategoryTabs from './components/AzkarCategoryTabs';
 
-
-
 export default function AzkarLibraryPage() {
-
   return (
+    <div className="app-shell">
+      {/* الهيدر العلوي */}
+      <header className="app-header">
+        <div className="header-bg-pattern"></div>
+        <div className="header-top">
+          <div className="header-brand">
+            <span className="brand-icon">🌙</span>
+            <div>
+              <h1 className="brand-title">نور الهداية</h1>
+              <p className="brand-sub">NUR AI ASSISTANT</p>
+            </div>
+          </div>
+        </div>
+      </header>
 
-    <AppLayout>
-
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '24px 16px 48px' }}>
-
+      {/* محتوى الصفحة الرئيسي */}
+      <main className="cards-feed">
+        {/* الترحيب */}
         <AzkarHero />
 
-        <div style={{ marginTop: '24px', display: 'grid', gridTemplateColumns: '1fr', gap: '20px' }} className="xl:grid-cols-4-custom">
-
-          <div style={{ flex: 1 }}>
-
-            <AzkarCategoryTabs />
-
-          </div>
-
-          <div style={{ minWidth: '280px', maxWidth: '340px' }} className="hidden xl:block">
-
-            <PrayerTimesWidget />
-
-          </div>
-
-        </div>
-
-        {/* Mobile prayer widget */}
-
-        <div style={{ marginTop: '20px' }} className="xl:hidden">
-
+        {/* مواقيت الصلاة */}
+        <div className="my-4">
           <PrayerTimesWidget />
-
         </div>
 
-      </div>
-
-    </AppLayout>
-
+        {/* تصنيفات الأذكار */}
+        <div className="mt-2">
+          <AzkarCategoryTabs />
+        </div>
+      </main>
+    </div>
   );
-
 }
